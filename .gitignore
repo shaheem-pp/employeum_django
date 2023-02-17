@@ -1,0 +1,26 @@
+# Django #
+*.log
+*.pot
+*.pyc
+_pycache_
+db.sqlite3
+media
+# Backup files #
+*.bak
+
+
+# Environments
+.env
+env
+venv
+
+# Sublime Text #
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+#pycharm
+**/.idea
+**/.DS_Store

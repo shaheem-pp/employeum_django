@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'employeum_django.wsgi.application'
 
 DATABASES = {
 		'default': {
-				'ENGINE': 'django.db.backends.sqlite3',
-				'NAME': BASE_DIR / 'db.sqlite3',
+				'ENGINE': 'django.db.backends.postgresql',
+				'NAME': env('DB_NAME'),
+				'USER': env('DB_USER'),
+				'PASSWORD': env('DB_PASSWORD'),
+				'HOST': env('DB_HOST'),
+				'PORT': env('DB_PORT'),
 		}
 }
 
@@ -111,16 +115,29 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
+
+DATE_FORMAT = 'Y-m-d'
+
+TIME_FORMAT = 'H:i'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+		os.path.join(BASE_DIR, 'static'),
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -26,15 +26,20 @@ To install Employeum, follow these steps:
     ```bash
     pip install -r requirements.txt
     ```
-4. Migrate the database: 
+4. In python terminal generate secretkey and paste it with variable `SECRET_KEY` in .env file inside project directory(directory with settings.py)
+    ```python
+    from django.core.management.utils import get_random_secret_key
+    print(get_random_secret_key())
+    ```
+5. Migrate the database: 
     ```bash
     python manage.py migrate
     ```
-5. Create a superuser: 
+6. Create a superuser: 
     ```bash
     python manage.py createsuperuser
     ```
-6. Start the development server: 
+7. Start the development server: 
     ```bash
     python manage.py runserver
     ```
